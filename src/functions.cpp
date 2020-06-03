@@ -4,16 +4,16 @@
 
 int h(int i, int d, Mat L, Mat R)
 {
-    if ( d > i )
+    if (d > i)
         return abs(L.at<uchar>(0, i) - R.at<uchar>(0, 0));
-    else 
+    else
         return abs(L.at<uchar>(0, i) - R.at<uchar>(0, i - d));
 }
 
 
 int g(int d, int b, int alpha)
 {
-        return alpha*abs(d - b);
+    return alpha * abs(d - b);
 }
 
 Mat initBinaryPenalty(int MAX_DISP, float alpha)
@@ -27,7 +27,7 @@ Mat initBinaryPenalty(int MAX_DISP, float alpha)
             g.at<int>(di, dj) = alpha * abs(di - dj);
         }
     }
-  
+
     return g;
 }
 
